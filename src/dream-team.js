@@ -1,4 +1,17 @@
-module.exports = function createDreamTeam(/* members */) {
-  throw 'Not implemented';
-  // remove line with error and write your code here
+module.exports = function createDreamTeam(members) {
+  let name = "";
+  const regexp = /\s/g;
+  members.forEach(member => {
+    if(typeof member === "string" && member.length > 0) {
+      name = name.replace(regexp, "");
+      name += member[0];
+    }
+  });
+
+  if(name.length > 1) {
+    name.sort();
+    return name;
+  }
+
+  return  false;
 };
